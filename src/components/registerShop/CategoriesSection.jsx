@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Grid, Container } from "@mui/material";
+import { Typography, Box, Container } from "@mui/material";
 
 const ProductCategories = () => {
   return (
@@ -8,7 +8,6 @@ const ProductCategories = () => {
       <Box
         sx={{
           textAlign: "center",
-        
           borderRadius: "8px",
           padding: "10px 20px",
           mb: 5,
@@ -27,11 +26,14 @@ const ProductCategories = () => {
         </Typography>
       </Box>
 
-      {/* Categories Grid */}
-      <Grid
-        container
-        spacing={3}
-        justifyContent="center"
+      {/* Categories Flexbox */}
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "16px", // Spacing between items
+        }}
       >
         {[
           "Automotive, Car & Accessories",
@@ -55,41 +57,37 @@ const ProductCategories = () => {
           "Gifts, Festivities & Pooja Supplies",
           "Pet Supplies",
         ].map((category, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4} // 3 items per row on medium screens and above
+          <Box
             key={index}
+            sx={{
+              flex: "1 1 calc(33.333% - 16px)", // 3 items per row with space
+              maxWidth: "calc(33.333% - 16px)", // Ensures proper width
+              boxSizing: "border-box",
+              padding: "20px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "10px",
+              backgroundColor: "#EFF8FF",
+              border: "1px solid #EFF8FF",
+              textAlign: "center",
+              height: "100%",
+            }}
           >
-            <Box
+            <Typography
               sx={{
-                padding: "20px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "10px",
-                backgroundColor: "#EFF8FF",
-                border: "1px solid #EFF8FF",
-                textAlign: "center",
-                height: "100%",
+                fontFamily: "Montserrat, sans-serif",
+                fontSize: "16px",
+                fontWeight: 600,
+                lineHeight: "1.2",
+                color: "#212121",
               }}
             >
-              <Typography
-                sx={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  lineHeight: "1.2",
-                  color: "#212121",
-                }}
-              >
-                {category}
-              </Typography>
-            </Box>
-          </Grid>
+              {category}
+            </Typography>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 };
