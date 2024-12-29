@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography, Button, Grid, styled, Link } from '@mui/material';
+import { Box, Typography, Button, styled, Link } from '@mui/material';
 
-// Styled Components
+// 💡 Styled Button
 const StyledButton = styled(Button)(({ theme }) => ({
   width: '100%',
   maxWidth: '292px',
@@ -26,15 +26,52 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+// 💡 Styled Image
 const StyledImage = styled('img')(({ theme }) => ({
   width: '100%',
   maxWidth: '425px',
   height: 'auto',
+  position: 'relative',
+  top: '47px',
   [theme.breakpoints.down('sm')]: {
     maxWidth: '300px',
   },
 }));
 
+const OverlappingContainer = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  width: '100%',
+  maxWidth: '425px',
+  height: 'auto',
+}));
+
+const OverlappingImage = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  top: '521px', // Adjust as needed
+  left: '110px', // Adjust as needed
+  width: '251px',
+  zIndex: 1,
+  [theme.breakpoints.down('sm')]: {
+    top: '10px',
+    left: '10px',
+    width: '70%',
+  },
+}));
+
+const AdditionalOverlappingImage = styled('img')(({ theme }) => ({
+  position: 'absolute',
+  top: '40px', // Adjust as needed
+  left: '250px', // Adjust as needed
+  width: '200px',
+  zIndex: 2, // Ensure this image is on top of the previous one
+  [theme.breakpoints.down('sm')]: {
+    top: '20px',
+    left: '20px',
+    width: '60%',
+  },
+}));
+
+// 💡 Styled Headline
 const StyledHeadline = styled(Typography)(({ theme }) => ({
   color: '#455F76',
   fontFamily: 'Montserrat',
@@ -42,9 +79,7 @@ const StyledHeadline = styled(Typography)(({ theme }) => ({
   lineHeight: '1.2',
   textAlign: 'left',
   marginBottom: '20px',
-  '& span:last-of-type': {
-    whiteSpace: 'nowrap',
-  },
+  fontSize: '36px',
   [theme.breakpoints.down('sm')]: {
     fontSize: '24px',
     textAlign: 'center',
@@ -57,21 +92,22 @@ const StyledHeadline = styled(Typography)(({ theme }) => ({
   },
 }));
 
+// 💡 Styled SubHeadline
 const StyledSubHeadline = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat',
   fontSize: '18px',
   fontWeight: 400,
   lineHeight: '36px',
-  textAlign: 'left',
+  textAlign: 'justify',
   marginBottom: '40px',
   [theme.breakpoints.down('sm')]: {
     fontSize: '14px',
     lineHeight: '24px',
-    textAlign: 'center',
     marginBottom: '20px',
   },
 }));
 
+// 💻 Main Component
 function AdsSection() {
   return (
     <Box
@@ -86,16 +122,31 @@ function AdsSection() {
         marginTop: '0px',
       }}
     >
-      <Grid container spacing={4} alignItems="center">
-        {/* Left Section */}
-        <Grid item xs={12} md={7}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          width: '100%',
+          gap: '20px',
+        }}
+      >
+        {/* 📝 Left Section */}
+        <Box
+          sx={{
+            flex: 1,
+            textAlign: { xs: 'center', md: 'left' },
+          }}
+        >
           <StyledHeadline>
-            Turn Your Products Into Profits -{' '}
+            Turn Your Products Into Profits - 
             <span style={{ color: '#619075' }}>Register and</span>{' '}
             <Link href="#" underline="hover" sx={{ color: '#FF944E' }}>
               Start Selling Now!
             </Link>
           </StyledHeadline>
+
           <StyledSubHeadline>
             Become an Indiazona Seller and{' '}
             <span style={{ color: '#619075' }}>grow your business across India!</span> If you don’t
@@ -103,28 +154,35 @@ function AdsSection() {
             with just an <span style={{ color: '#619075' }}>enrollment number</span> and take your
             business to new heights.
           </StyledSubHeadline>
-          <StyledButton>Register Your Shop Now</StyledButton>
-        </Grid>
 
-        {/* Right Section */}
-        <Grid
-          item
-          xs={12}
-          md={5}
-          display="flex"
-          justifyContent="flex-end"
-          alignItems="center"
+          <StyledButton>Register Your Shop Now</StyledButton>
+        </Box>
+
+        {/* 📸 Right Section */}
+        <Box
           sx={{
-            position: 'relative',
+            flex: 1,
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-end' },
+            alignItems: 'center',
           }}
         >
-          <StyledImage
-            src="/assets/images/INDIAZONAwn.png"
-            alt="Woman holding boxes"
-            
-          />
-        </Grid>
-      </Grid>
+          <OverlappingContainer>
+            <StyledImage
+              src="/assets/images/INDIAZONAwn.png"
+              alt="Woman holding boxes"
+            />
+            <OverlappingImage
+              src="/assets/images/Rectangle.png"
+              alt="Indiazona logo"
+            />
+            <AdditionalOverlappingImage
+              src="/assets/images/Ellipse.png"
+              alt="Additional overlapping graphic"
+            />
+          </OverlappingContainer>
+        </Box>
+      </Box>
     </Box>
   );
 }
