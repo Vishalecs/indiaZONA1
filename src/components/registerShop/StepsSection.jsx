@@ -10,30 +10,34 @@ const SimpleStepsText = () => {
         margin: "50px auto",
         padding: "40px 20px",
         textAlign: "center",
-        position: "relative", // Ensures proper alignment for positioning
+        position: "relative",
+        "@media (max-width: 600px)": {
+          padding: "20px",
+        },
       }}
     >
       {/* Title Text Above the Steps */}
       <Typography
-        sx={{
-          width: "592px",
-          height: "38px",
-          gap: "0px",
-          opacity: 1,
-          fontFamily: "Montserrat",
-          fontSize: "28px", // Adjust as needed
-          fontWeight: 800,
-          lineHeight: "38px",
-          textAlign: "center",
-          textUnderlinePosition: "from-font",
-          textDecorationSkipInk: "none",
-          margin: "0 auto 20px auto", // Centers the text and adds margin below
-          position: "relative",
-          top: "-20px", // Moves the text slightly upward
-        }}
-      >
-        Simple steps to register your shop easily
-      </Typography>
+  sx={{
+    fontFamily: "Montserrat, sans-serif",
+    fontSize: { xs: "20px", sm: "24px", md: "28px" },
+    fontWeight: 700,
+    lineHeight: "var(--lineheight38)", // Using CSS variable
+    textAlign: "center",
+    textUnderlinePosition: "from-font",
+    textDecorationSkipInk: "none",
+    margin: "0 auto 20px auto",
+    "@media (max-width: 900px)": {
+      fontSize: "24px",
+    },
+    "@media (max-width: 600px)": {
+      fontSize: "20px",
+    },
+  }}
+>
+  Simple steps to register your shop easily
+</Typography>
+
 
       {/* Step Container */}
       <Box
@@ -43,6 +47,9 @@ const SimpleStepsText = () => {
           background: "#EFF8FF",
           padding: "40px 20px",
           textAlign: "center",
+          "@media (max-width: 600px)": {
+            padding: "20px",
+          },
         }}
       >
         <Box
@@ -50,10 +57,16 @@ const SimpleStepsText = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
+            flexDirection: "row",
             position: "relative",
+            "@media (max-width: 600px)": {
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            },
           }}
         >
-          {/* Horizontal Connecting Line */}
+          {/* Connecting Line */}
           <Box
             sx={{
               position: "absolute",
@@ -64,6 +77,9 @@ const SimpleStepsText = () => {
               background: "#455F76",
               zIndex: 0,
               transform: "translateX(-50%)",
+              "@media (max-width: 600px)": {
+                display: "none", // Hide the line on mobile
+              },
             }}
           />
 
@@ -78,13 +94,13 @@ const SimpleStepsText = () => {
               number: "2",
               title: "Business Details",
               description:
-                "PAN Card, shop registration document, and shop owner authentication proof are required in this section.",
+                "PAN Card, shop registration document, and shop owner authentication proof are required.",
             },
             {
               number: "3",
               title: "GST Details",
               description:
-                "GST Document or Enrollments Number document required in this section.",
+                "GST Document or Enrollment Number document required in this section.",
             },
             {
               number: "4",
@@ -105,6 +121,10 @@ const SimpleStepsText = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                marginBottom: "20px",
+                "@media (max-width: 600px)": {
+                  marginBottom: "15px",
+                },
               }}
             >
               {/* Step Number */}
@@ -133,6 +153,9 @@ const SimpleStepsText = () => {
                   fontSize: "18px",
                   fontWeight: 700,
                   marginBottom: "5px",
+                  "@media (max-width: 600px)": {
+                    fontSize: "16px",
+                  },
                 }}
               >
                 {step.title}
@@ -146,6 +169,9 @@ const SimpleStepsText = () => {
                   fontWeight: 400,
                   color: "#7A8B9A",
                   maxWidth: "200px",
+                  "@media (max-width: 600px)": {
+                    fontSize: "12px",
+                  },
                 }}
               >
                 {step.description}
