@@ -39,6 +39,8 @@ const StyledLogo = styled('img')`
   width: 203px;
   height: 70.38px;
   margin-top: 26px;
+  position: relative;
+  margin-top: 0px;
 
   @media (max-width: 600px) {
     width: 150px; /* Smaller logo for mobile */
