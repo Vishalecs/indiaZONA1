@@ -43,18 +43,21 @@ const OverlappingContainer = styled(Box)(({ theme }) => ({
   width: '100%',
   maxWidth: '425px',
   height: 'auto',
+  [theme.breakpoints.down('sm')]: {
+    maxWidth: '300px',
+  },
 }));
 
 const OverlappingImage = styled('img')(({ theme }) => ({
   position: 'absolute',
-  top: '521px', // Adjust as needed
-  left: '110px', // Adjust as needed
-  width: '251px',
+  top: 'calc(100% - 70px)', // Responsive positioning
+  left: '10%', // Dynamic centering
+  width: '100%', // Scales with parent container
   zIndex: 1,
   [theme.breakpoints.down('sm')]: {
-    top: '10px',
-    left: '10px',
-    width: '70%',
+    top: '95%',
+    left: '5%',
+    width: '80%',
   },
 }));
 
@@ -63,11 +66,11 @@ const AdditionalOverlappingImage = styled('img')(({ theme }) => ({
   top: '40px', // Adjust as needed
   left: '250px', // Adjust as needed
   width: '200px',
-  zIndex: 2, // Ensure this image is on top of the previous one
+  zIndex: 2, // Ensure this image is on top of the previous one// Ensure this image is on top
   [theme.breakpoints.down('sm')]: {
-    top: '20px',
-    left: '20px',
-    width: '60%',
+    top: '20%',
+    left: '10%',
+    width: '40%',
   },
 }));
 
