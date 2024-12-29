@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid2 } from "@mui/material";
 
 const BenefitsText = () => {
   return (
@@ -41,7 +41,7 @@ const BenefitsText = () => {
       </Typography>
 
       {/* Benefits Section */}
-      <Grid
+      <Grid2
         container
         spacing={2}
         justifyContent="center"
@@ -55,11 +55,11 @@ const BenefitsText = () => {
           { text: "Payments Management", icon: "💳" },
           { text: "Low Platform Charges", icon: "📦" },
         ].map((item, index) => (
-          <Grid
+          <Grid2
             item
-            xs={12}
-            sm={6}
-            md={4}
+            xs={12} // 1 item per row on extra-small screens
+            sm={6}  // 2 items per row on small screens
+            md={4}  // 3 items per row on medium screens and above
             key={index}
             sx={{
               display: "flex",
@@ -105,9 +105,9 @@ const BenefitsText = () => {
                 {item.text}
               </Typography>
             </Box>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
+      </Grid2>
     </Box>
   );
 };
