@@ -6,34 +6,12 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat, Roboto, Arial, sans-serif',
   },
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '24px',
-    textAlign: 'center',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '36px',
-  },
-  [theme.breakpoints.up('lg')]: {
-    fontSize: '48px',
-  },
-}));
+});
 
-const StyledSubHeadline = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Montserrat',
-  fontSize: '18px',
-  fontWeight: 400,
-  lineHeight: '36px',
-  textAlign: 'left',
-  marginBottom: '40px',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '14px',
-    lineHeight: '24px',
-    textAlign: 'center',
-    marginBottom: '20px',
-  },
-}));
+const Banner = () => {
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
-function AdsSection() {
   return (
     <ThemeProvider theme={theme}>
       <Box
@@ -176,4 +154,4 @@ function AdsSection() {
   );
 };
 
-export default AdsSection;
+export default Banner;
