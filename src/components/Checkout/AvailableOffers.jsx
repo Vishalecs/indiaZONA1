@@ -157,7 +157,18 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
       </Typography>
 
       {/* Coupon Options */}
-      <Box display="flex" justifyContent="space-between" gap={2} flexWrap="wrap" width="60%">
+      <Box
+  display="flex"
+  justifyContent="space-between"
+  gap={2}
+  flexWrap="wrap"
+  sx={{
+    width: "60%", // Default for larger screens
+    "@media (max-width: 600px)": {
+      width: "100%", // Mobile view
+    },
+  }}
+>
         <Box
           onClick={() => handleCouponClick('COUPON10')}
           sx={{
