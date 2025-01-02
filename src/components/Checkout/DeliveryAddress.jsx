@@ -57,12 +57,12 @@ const DeliveryAddress = () => {
         
         
         maxWidth: "884px",
-        
+       
         backgroundColor: "#fff",
         
         fontFamily: "Montserrat",
         "@media (max-width: 600px)": {
-          padding: "16px",
+          padding: "5px",
         },
       }}
     >
@@ -101,10 +101,11 @@ const DeliveryAddress = () => {
     display: "flex",
     justifyContent: "space-between",
     marginBottom: "8px",
-    "@media (max-width: 600px)": {
+    "@media (max-width: 600px max-height: auto)": {
       flexDirection: "row", // Ensure it stays in a row even in mobile view
       alignItems: "center", // Align all items to the center on mobile
-      justifyContent: "space-between", // Maintain spacing between elements in mobile
+      justifyContent: "space-between",
+      
     },
   }}
 >
@@ -218,255 +219,248 @@ const DeliveryAddress = () => {
 
 
 
-      <Modal
-        open={showForm}
-        onClose={handleCancel}
-        aria-labelledby="add-address-modal"
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: "#fff",
-            borderRadius: "10px",
-            padding: "24px",
-            width: "90%",
-            maxWidth: "848px",
-            boxShadow: 24,
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "600",
-              marginBottom: "16px",
-              textAlign: "center",
-            }}
-          >
-            {editIndex !== null ? "Edit Delivery Address" : "Add New Delivery Address"}
-          </Typography>
-
-          {/* Address form */}
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "16px",
-              "@media (max-width: 600px)": {
-                gridTemplateColumns: "1fr",
-              },
-            }}
-          >
-            <TextField
-              label="Name"
-              name="name"
-              value={address.name || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="Mobile Number"
-              name="mobile"
-              value={address.mobile || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="Pincode"
-              name="pincode"
-              value={address.pincode || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="Locality"
-              name="locality"
-              value={address.locality || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-           <TextField
-  label="Area & Street"
-  name="areaStreet"
-  value={address.areaStreet || ""}
-  onChange={handleInputChange}
-  fullWidth
+<Modal
+  open={showForm}
+  onClose={handleCancel}
+  aria-labelledby="add-address-modal"
   sx={{
-    gridColumn: "1 / -1",
-    "& .MuiInputBase-root": {
-      height: "76px",  // Adjust this value as needed
-    },
-  }}
-/>
-
-            <TextField
-              label="City"
-              name="city"
-              value={address.city || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="State"
-              name="state"
-              value={address.state || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="Landmark"
-              name="landmark"
-              value={address.landmark || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-            <TextField
-              label="Alternate Mobile"
-              name="Altmobile"
-              value={address.Altmobile || ""}
-              onChange={handleInputChange}
-              fullWidth
-            />
-          </Box>
-
-          <FormControl>
-          <Typography
-  style={{
-    fontFamily: 'Montserrat',
-    fontSize: '16px',
-    color: 'var(--gark-grey, #A1A1A1)',
-
-    fontWeight: 500,
-    lineHeight: '19.84px',
-    letterSpacing: '-0.03em',
-    textAlign: 'left',
-    textUnderlinePosition: 'from-font',
-    textDecorationSkipInk: 'none',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }}
 >
-  Address Type
-</Typography>
+  <Box
+    sx={{
+      backgroundColor: "#fff",
+      borderRadius: "10px",
+      padding: "24px",
+      width: "90%",
+      maxWidth: "848px",
+      maxHeight: "650px", // Limit modal height to viewport height
+      overflowY: "auto", // Enable scrolling for overflow
+      boxShadow: 24,
+      display: "flex",
+      flexDirection: "column",
+      gap: "16px",
+    }}
+  >
+    <Typography
+      variant="h6"
+      sx={{
+        fontWeight: "600",
+        marginBottom: "16px",
+        textAlign: "center",
+      }}
+    >
+      {editIndex !== null
+        ? "Edit Delivery Address"
+        : "Add New Delivery Address"}
+    </Typography>
 
-  
-<RadioGroup
-              name="delivery-options"
-              value={address.addressType || "home"}
-              onChange={(e) =>
-                setAddress((prev) => ({
-                  ...prev,
-                  addressType: e.target.value,
-                }))
-              }
-            >
-              <div style={{ display: "flex", gap: "20px" }}>
-                <FormControlLabel
-                  value="home"
-                  control={<Radio />}
-                  label={
-                    <div>
-                      <Typography>Home</Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: "Montserrat",
-                          fontSize: "14px",
-                          color: "#B8B8B8",
-                          fontWeight: "400",
-                        }}
-                      >
-                        Home deliveries
-                      </Typography>
-                    </div>
-                  }
-                />
-                <FormControlLabel
-                  value="work"
-                  control={<Radio />}
-                  label={
-                    <div>
-                      <Typography>Work</Typography>
-                      <Typography
-                        sx={{
-                          fontFamily: "Montserrat",
-                          fontSize: "14px",
-                          color: "#B8B8B8",
-                          fontWeight: "400",
-                        }}
-                      >
-                        Office deliveries
-                      </Typography>
-                    </div>
-                  }
-                />
-              </div>
-            </RadioGroup>
+    {/* Address Form */}
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "10px",
+        height: "750px",
+        "@media (max-width: 600px)": {
+          gridTemplateColumns: "1fr",
+        },
+      }}
+    >
+      <TextField
+        label="Name"
+        name="name"
+        value={address.name || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Mobile Number"
+        name="mobile"
+        value={address.mobile || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Pincode"
+        name="pincode"
+        value={address.pincode || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Locality"
+        name="locality"
+        value={address.locality || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Area & Street"
+        name="areaStreet"
+        value={address.areaStreet || ""}
+        onChange={handleInputChange}
+        fullWidth
+        sx={{
+          gridColumn: "1 / -1", // Spans full row
+          "& .MuiInputBase-root": {
+            height: "76px",
+          },
+        }}
+      />
+      <TextField
+        label="City"
+        name="city"
+        value={address.city || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="State"
+        name="state"
+        value={address.state || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Landmark"
+        name="landmark"
+        value={address.landmark || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+      <TextField
+        label="Alternate Mobile"
+        name="Altmobile"
+        value={address.Altmobile || ""}
+        onChange={handleInputChange}
+        fullWidth
+      />
+    </Box>
+
+    {/* Address Type */}
+    <FormControl sx={{ marginTop: "16px","@media (max-width: 600px)": {
+          flexDirection: "column",}}}>
+  <Typography
+    sx={{
+      fontFamily: "Montserrat",
+      fontSize: "16px",
+      color: "#A1A1A1",
+      fontWeight: "500",
+      marginBottom: "8px",
+    }}
+  >
+    Address Type
+  </Typography>
+  <RadioGroup
+    name="delivery-options"
+   
+    value={address.addressType || "home"}
+    onChange={(e) =>
+      setAddress((prev) => ({
+        ...prev,
+        addressType: e.target.value,
+      }))
+    }
+    sx={{ display: "flex", flexDirection: "row", gap: "16px" ,"@media (max-width: 600px)": {
+      flexDirection: "column",
+                }, }}
+  >
+    <FormControlLabel
+      value="home"
+      control={<Radio />}
+      label={
+        <Box>
+          <Typography>Home</Typography>
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "14px",
+              color: "#B8B8B8",
+              fontWeight: "400",
+            }}
+          >
+            Home deliveries
+          </Typography>
+        </Box>
+      }
+    />
+    <FormControlLabel
+      value="work"
+      control={<Radio />}
+      label={
+        <Box>
+          <Typography>Work</Typography>
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "14px",
+              color: "#B8B8B8",
+              fontWeight: "400",
+            }}
+          >
+            Office deliveries
+          </Typography>
+        </Box>
+      }
+    />
+  </RadioGroup>
 </FormControl>
 
 
-<Box
-  sx={{
-    display: "flex",
-    justifyContent: "center", // Center the buttons horizontally
-    gap: "20px", // Set 20px gap between the buttons
-    marginTop: "16px",
-    "@media (max-width: 600px)": {
-      flexDirection: "row", // Stack buttons in a column on small screens
-      gap: "12px", // Adjust gap for mobile view
-    },
-  }}
->
-  <Button
-    variant="outlined"
-    onClick={handleCancel}
-    sx={{
-      width: "250px", // Decreased width for Cancel button
-      height: "56px",
-      borderRadius: "5px 0px 0px 0px",
-      border: "1px solid #455F76",
-      opacity: 1,
-      fontFamily: "Montserrat",
-      fontSize: "20px",
-      fontWeight: 600,
-      lineHeight: "22px",
-      letterSpacing: "-0.01em",
-      textAlign: "center",
-      textUnderlinePosition: "from-font",
-      textDecorationSkipInk: "none",
-    }}
-  >
-    Cancel
-  </Button>
+    {/* Action Buttons */}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        gap: "20px",
+        marginTop: "16px",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          gap: "12px",
+        },
+      }}
+    >
+      <Button
+        variant="outlined"
+        onClick={handleCancel}
+        sx={{
+          width: "250px",
+          height: "56px",
+          fontFamily: 'Montserrat',
+          fontWeight:600,
+          fontSize: '20px',
+          "@media (max-width: 600px)": {
+                  width: "100%",
+                },
+        }}
+      >
+        Cancel
+      </Button>
+      <Button
+        variant="contained"
+        onClick={handleSave}
+        sx={{
+          width: "250px",
+          height: "56px",
+          fontFamily: 'Montserrat',
+          backgroundColor: "#FF944E",
+          fontFamily: 'Montserrat',
+          fontWeight:600,
+          fontSize: '20px',
+          "@media (max-width: 600px)": {
+                  width: "100%",
+                },
+        }}
+      >
+        Save & Deliver Here
+      </Button>
+    </Box>
+  </Box>
+</Modal>
 
-  <Button
-    variant="contained"
-    onClick={handleSave}
-    sx={{
-      width: "250px", // Set width for Save button (same width as Cancel button)
-      height: "56px",
-      borderRadius: "5px 0px 0px 0px",
-      backgroundColor: "#FF944E",
-      opacity: 1,
-      fontFamily: "Montserrat",
-      fontSize: "20px",
-      fontWeight: 600,
-      lineHeight: "22px",
-      letterSpacing: "-0.01em",
-      textAlign: "center",
-      textUnderlinePosition: "from-font",
-      textDecorationSkipInk: "none",
-    }}
-  >
-    Save & Deliver Here
-  </Button>
-</Box>
-
-        </Box>
-      </Modal>
     </Box>
   );
 };
