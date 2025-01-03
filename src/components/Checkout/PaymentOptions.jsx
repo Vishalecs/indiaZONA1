@@ -77,7 +77,7 @@ const PaymentOptions = () => {
             width: "100%", // Full width for small screens
             height: "74px",
             padding: "15px 15px 15px 15px",
-            borderRadius: "5px 0 0 0",
+            borderRadius: "5px 5px 5px 5px",
             border: "1px solid #BABABA",
             backgroundColor: selectedOption === "upi" ? "#f5f5f5" : "transparent",
           }}
@@ -91,7 +91,7 @@ const PaymentOptions = () => {
             marginTop: "2px",
             marginLeft: "-10px",
             border: "1px solid var(--iz-grey-light, #BABABA)",
-            borderRadius: "5px",
+            borderRadius: "5px 5px 5px 5px",
             padding: "10px",
             display: "flex",
             flexDirection: "column",
@@ -152,7 +152,7 @@ const PaymentOptions = () => {
             width: "100%", // Full width for small screens
             height: "74px",
             padding: "15px 0 0 0",
-            borderRadius: "5px 0 0 0",
+            borderRadius: "5px 5px 5px 5px",
             border: "1px solid #BABABA",
             backgroundColor:
               selectedOption === "credit" ? "#f5f5f5" : "transparent",
@@ -366,7 +366,7 @@ const PaymentOptions = () => {
             width: "100%", // Full width for small screens
             height: "74px",
             padding: "15px 0 0 0",
-            borderRadius: "5px 0 0 0",
+            borderRadius: "5px 5px 5px 5px",
             border: "1px solid #BABABA",
             backgroundColor: selectedOption === "cod" ? "#f5f5f5" : "transparent",
           }}
