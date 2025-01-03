@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, CardContent, Typography, Box, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Card, CardContent, Typography, Box, Button, Modal } from "@mui/material";
 
 // OrderSummary Component
 const OrderSummary = ({
@@ -9,6 +9,26 @@ const OrderSummary = ({
   discountApplied,
   total,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+  const handleContinueShopping = () => {
+    // Add logic to navigate to the shopping page or home page
+    console.log("Navigating to Continue Shopping...");
+    // Example: window.location.href = '/shop';
+  };
+
+  const handleTrackOrder = () => {
+    // Add logic to navigate to the order tracking page
+    console.log("Navigating to Track Order...");
+    // Example: window.location.href = '/track-order';
+  };
   return (
     <Box
       sx={{
@@ -254,30 +274,148 @@ const OrderSummary = ({
         <Button
           sx={{
             marginTop: "10px",
-            backgroundColor: " #FF944E",
-            width:'100%',
-            height:'56px',
+            backgroundColor: "#FF944E",
+            width: "100%",
+            height: "56px",
             color: "#fff",
             "&:hover": {
-              backgroundColor: " #FF944E",
+              backgroundColor: "#FF944E",
             },
           }}
           variant="contained"
+          onClick={handleButtonClick}
         >
           <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Montserrat",
-                  fontSize: "18px",
-                  fontWeight: 700,
-                  lineHeight: "19.5px",
-                  textAlign: "left",
-                  color: "#fff",
-                }}
-              >
-                Place your order
-              </Typography>
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "18px",
+              fontWeight: 700,
+              color: "#fff",
+            }}
+          >
+            Place your order
+          </Typography>
         </Button>
+
+        {/* Modal for Order Confirmation */}
+        <Modal
+  open={isModalOpen}
+  onClose={handleClose}
+  aria-labelledby="order-success-title"
+  aria-describedby="order-success-description"
+>
+  <Box
+    sx={{
+      width: { xs: "90%", sm: "70%", md: "520px" }, // Responsive width
+      height: { xs: "auto", md: "402px" }, // Adjust height for smaller screens
+      backgroundColor: "#fff",
+      borderRadius: "15px",
+      padding: { xs: "15px", md: "20px" }, // Adjust padding
+      margin: "auto",
+      marginTop: { xs: "20%", sm: "15%", md: "7%" }, // Adjust top margin
+      boxShadow: 24,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+    }}
+  >
+    {/* Add the icon */}
+    <img
+      src="/assets/images/Group.png" // Replace with the actual path to the uploaded image
+      alt="Success Icon"
+      style={{
+        width: "80px", // Adjusted for smaller screens
+        height: "80px",
+        marginBottom: "20px",
+      }}
+    />
+    <Typography
+      variant="h5"
+      sx={{
+        fontFamily: "Montserrat",
+        fontSize: { xs: "18px", md: "24px" }, // Responsive font size
+        fontWeight: 700,
+        marginBottom: "16px",
+      }}
+    >
+      Your order has been successfully placed!
+    </Typography>
+
+    <Typography
+      variant="body1"
+      sx={{
+        fontFamily: "Montserrat",
+        fontSize: { xs: "14px", md: "16px" }, // Responsive font size
+        color: "#333",
+        marginBottom: "8px",
+      }}
+    >
+      Order ID: <strong>3354-6546-5452</strong>
+    </Typography>
+    <Typography
+      variant="body1"
+      sx={{
+        fontFamily: "Montserrat",
+        fontSize: { xs: "14px", md: "16px" }, // Responsive font size
+        color: "#333",
+        marginBottom: "30px",
+      }}
+    >
+      Expected Delivery: <strong>31st Dec, 2024</strong>
+    </Typography>
+
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", md: "row" }, // Stack buttons on small screens
+        gap: "15px", // Add spacing between buttons
+        justifyContent: { md: "space-between" },
+        alignItems: "center",
+        width: "100%",
+        padding: { xs: "0", md: "0 50px" }, // Adjust padding
+      }}
+    >
+      <Button
+        variant="outlined"
+        sx={{
+          borderColor: "#FF944E",
+          color: "#FF944E",
+          fontFamily: "Montserrat",
+          fontSize: { xs: "12px", md: "14px" }, // Responsive font size
+          fontWeight: 600,
+          padding: "10px 20px",
+          textTransform: "none",
+          "&:hover": {
+            borderColor: "#FF944E",
+            backgroundColor: "rgba(255, 148, 78, 0.1)",
+          },
+        }}
+        onClick={handleContinueShopping}
+      >
+        Continue Shopping
+      </Button>
+      <Button
+        variant="contained"
+        sx={{
+          backgroundColor: "#FF944E",
+          fontFamily: "Montserrat",
+          fontSize: { xs: "12px", md: "14px" }, // Responsive font size
+          fontWeight: 600,
+          padding: "10px 20px",
+          textTransform: "none",
+          "&:hover": {
+            backgroundColor: "#FF944E",
+          },
+        }}
+        onClick={handleTrackOrder}
+      >
+        Track your Order
+      </Button>
+    </Box>
+  </Box>
+</Modal>
+
       </Box>
     </Box>
   );
