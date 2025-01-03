@@ -76,7 +76,7 @@ const DeliveryAddress = () => {
           color:'#455F76',
           
           "@media (max-width: 600px)": {
-            fontSize: "18px",
+            fontSize: "20px",
           },
         }}
       >
@@ -340,9 +340,9 @@ const DeliveryAddress = () => {
       />
     </Box>
 
-    {/* Address Type */}
-    <FormControl sx={{ marginTop: "16px","@media (max-width: 600px)": {
-          flexDirection: "column",}}}>
+    <FormControl
+ 
+>
   <Typography
     sx={{
       fontFamily: "Montserrat",
@@ -356,24 +356,37 @@ const DeliveryAddress = () => {
   </Typography>
   <RadioGroup
     name="delivery-options"
-   
-    value={address.addressType || "home"}
+    value={address.addressType || ""}
     onChange={(e) =>
       setAddress((prev) => ({
         ...prev,
         addressType: e.target.value,
       }))
     }
-    sx={{ display: "flex", flexDirection: "row", gap: "16px" ,"@media (max-width: 600px)": {
-      flexDirection: "column",
-                }, }}
+    sx={{
+      display: "flex",
+      flexDirection: "row",
+      gap: "16px",
+      "@media (max-width: 600px)": {
+        flexDirection: "column",
+      },
+    }}
   >
     <FormControlLabel
       value="home"
       control={<Radio />}
       label={
         <Box>
-          <Typography>Home</Typography>
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "19px",
+              color: "#212121",
+              fontWeight: "600",
+            }}
+          >
+            Home
+          </Typography>
           <Typography
             sx={{
               fontFamily: "Montserrat",
@@ -392,7 +405,16 @@ const DeliveryAddress = () => {
       control={<Radio />}
       label={
         <Box>
-          <Typography>Work</Typography>
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontSize: "19px",
+              color: "#212121",
+              fontWeight: "600",
+            }}
+          >
+            Work
+          </Typography>
           <Typography
             sx={{
               fontFamily: "Montserrat",
@@ -407,7 +429,9 @@ const DeliveryAddress = () => {
       }
     />
   </RadioGroup>
+  
 </FormControl>
+
 
 
     {/* Action Buttons */}
