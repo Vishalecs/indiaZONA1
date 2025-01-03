@@ -13,10 +13,24 @@ import {
 
 const DeliveryAddress = () => {
   const [showForm, setShowForm] = useState(false);
-  const [address, setAddress] = useState({});
+  
   const [addresses, setAddresses] = useState([]);
   const [editIndex, setEditIndex] = useState(null); // Track index for editing
-
+  const [selectedAddressIndex, setSelectedAddressIndex] = useState(null);
+  
+  const [address, setAddress] = useState({
+    name: '',
+    mobile: '',
+    pincode: '',
+    locality: '',
+    areaStreet: '',
+    city: '',
+    state: '',
+    landmark: '',
+    Altmobile: '',
+    addressType: '', // Default to an empty string
+  });
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setAddress((prev) => ({ ...prev, [name]: value }));
@@ -52,14 +66,12 @@ const DeliveryAddress = () => {
   };
 
   return (
+    
+
     <Box
       sx={{
-        
-        
         maxWidth: "884px",
-       
         backgroundColor: "#fff",
-        
         fontFamily: "Montserrat",
         "@media (max-width: 600px)": {
           padding: "5px",
@@ -69,12 +81,11 @@ const DeliveryAddress = () => {
       <Typography
         variant="h5"
         sx={{
-          fontFamily:'Montserrat',
+          fontFamily: "Montserrat",
           fontSize: "22px",
           fontWeight: "600",
           marginBottom: "16px",
-          color:'#455F76',
-          
+          color: "#455F76",
           "@media (max-width: 600px)": {
             fontSize: "20px",
           },
@@ -82,7 +93,7 @@ const DeliveryAddress = () => {
       >
         Select Delivery Address
       </Typography>
-
+    
       {addresses.length > 0 ? (
         addresses.map((address, index) => (
           <Box
@@ -96,97 +107,108 @@ const DeliveryAddress = () => {
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
           >
-           <Box
-  sx={{
-    display: "flex",
-    justifyContent: "space-between",
-    marginBottom: "8px",
-    "@media (max-width: 600px max-height: auto)": {
-      flexDirection: "row", // Ensure it stays in a row even in mobile view
-      alignItems: "center", // Align all items to the center on mobile
-      justifyContent: "space-between",
-      
-    },
-  }}
->
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginBottom: "8px",
+                "@media (max-width: 600px max-height: auto)": {
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  "@media (max-width: 600px)": {
+                    flexDirection: "row",
+                    alignItems: "center",
+                  },
+                }}
+              >
+                {/* Updated Radio Button */}
+                <Radio
+                  checked={selectedAddressIndex === index}
+                  onChange={() => setSelectedAddressIndex(index)}
+                />
+                <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
+                  {address.name}
+                </Typography>
+                {address.addressType && (
   <Box
     sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: "8px",
-      "@media (max-width: 600px)": {
-        flexDirection: "row", // Keep elements in a row in mobile view
-        alignItems: "center", // Align the elements in the center for better mobile display
-      },
-    }}
-  >
-    {/* Radio Button */}
-    <Radio />
-    
-    {/* Name */}
-    <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
-      {address.name}
-    </Typography>
-    
-    {/* Address Type Button */}
-    <Button
-      variant="outlined"
-      sx={{
-        fontSize: "14px",
-        fontWeight: "500",
-        color: "#555",
-        textTransform: "none",
-      }}
-      disabled
-    >
-      {address.addressType}
-    </Button>
-    
-    {/* Mobile Number */}
-    <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
-      {address.mobile}
-    </Typography>
-  </Box>
-
-  {/* Edit Link - Positioned on the same line */}
-  <Typography
-    sx={{
+      width: "56px",
+      height: "25px",
+      position: "relative",
+      
+      padding: "4px 6px",
+      gap: "10px",
+      borderRadius: "3px 3px 3px 3px",
+      border: "0.5px solid #455F76", // Add border color
+      opacity: 1, // Make it visible
+      fontFamily: "Montserrat",
       fontSize: "14px",
       fontWeight: "500",
-      color: "#007BFF",
-      cursor: "pointer",
-      "@media (max-width: 600px)": {
-        marginLeft: "8px", // Add some space between mobile number and Edit link
-      },
+      lineHeight: "17.07px",
+      textAlign: "left",
+      textUnderlinePosition: "from-font",
+      textDecorationSkipInk: "none",
+      color: "#455F76",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
     }}
-    onClick={() => handleEdit(index)}
   >
-    Edit
-  </Typography>
-</Box>
+    {address.addressType}
+  </Box>
+)}
 
+                <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
+                  {address.mobile}
+                </Typography>
+              </Box>
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#007BFF",
+                  cursor: "pointer",
+                  "@media (max-width: 600px)": {
+                    marginLeft: "8px",
+                  },
+                }}
+                onClick={() => handleEdit(index)}
+              >
+                Edit
+              </Typography>
+            </Box>
             <Typography
               sx={{
-                fontFamily:'Montserrat',
+                fontFamily: "Montserrat",
                 marginLeft: "32px",
                 fontSize: "16px",
-                lineHeight: '24px',
+                lineHeight: "24px",
                 color: "#656565",
                 fontWeight: "500",
-                paddingLeft:'16px',
+                paddingLeft: "16px",
                 "@media (max-width: 600px)": {
                   marginLeft: "0",
                 },
               }}
             >
-              {`${address.locality}, ${address.areaStreet}, ${address.city}, ${address.state}, ${address.pincode}, ${address.Altmobile}`}
+              {`${address.locality }, ${address.areaStreet}, ${address.city}, ${address.state}, ${address.pincode}, ${address.Altmobile}`}
             </Typography>
           </Box>
         ))
       ) : (
         <Typography>No addresses added yet.</Typography>
       )}
-
+    
+    
 <a
   href="#"
   onClick={() => setShowForm(true)}
