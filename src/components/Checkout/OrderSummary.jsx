@@ -255,18 +255,22 @@ const OrderSummary = ({
         sx={{
           width: "100%",
           maxWidth: "392px",
-          marginTop: "20px",
-          textAlign: "center",
+          
+          textAlign: "left",
           position: "relative",
+          marginTop: '40px'
         }}
       >
         <Typography
           sx={{
             fontFamily: "Montserrat",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: "400",
-            lineHeight: "17.07px",
+            lineHeight: "19.07px",
             color: "#696969",
+            marginBottom:"20px","@media (max-width: 600px)": {
+                alignItems:'center',// Mobile view
+              },
           }}
         >
           By proceeding with this order, you accept all terms and conditions.
