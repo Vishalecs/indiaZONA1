@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, TextField, Link, Card, InputAdornment, CardContent, Checkbox, FormControlLabel, IconButton } from '@mui/material';
+import { Box, Typography, TextField, Link, InputAdornment, Checkbox, FormControlLabel, IconButton } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Discount } from '@mui/icons-material';
 
@@ -155,7 +155,24 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
       >
         Enter a valid coupon/Gift Card/Referral code
       </Typography>
-
+     
+      <Typography
+        sx={{
+          fontFamily: "Montserrat",
+          fontSize: "16px",
+          fontWeight: "600",
+          lineHeight: "19.5px",
+          textAlign: "left",
+          textUnderlinePosition: "from-font",
+          textDecorationSkipInk: "none",
+          color: "#212121",
+          marginTop: '20px', 
+          marginBottom: '15px',
+        }}
+      >
+        Available Coupon Code
+      </Typography>
+   
       {/* Coupon Options */}
       <Box
   display="flex"
@@ -206,9 +223,13 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
               fontWeight: 600,
               textAlign: 'center',
               color: '#FF944E',
+              marginLeft:'30px',
+              "@media (max-width: 600px)": {
+                marginLeft:'90px',// Mobile view
+              },
             }}
           >
-            Coupon 10% OFF
+            Coupon 10% OFF <ContentCopyIcon sx={{ color: "#FF944E" ,height:"17px"}} /> 
           </Typography>
         </Box>
 
@@ -249,9 +270,13 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
               fontWeight: 600,
               textAlign: 'center',
               color: '#FF944E',
+              marginLeft:'30px',
+              "@media (max-width: 600px)": {
+                marginLeft:'90px',// Mobile view
+              },
             }}
           >
-            Coupon 20% OFF
+            Coupon 20% OFF <ContentCopyIcon sx={{ color: "#FF944E" ,height:"17px"}} /> 
           </Typography>
         </Box>
       </Box>
