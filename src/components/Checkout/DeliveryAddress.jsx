@@ -72,28 +72,29 @@ const DeliveryAddress = () => {
       sx={{
         maxWidth: "884px",
         backgroundColor: "#fff",
-        fontFamily: "Montserrat",
+       
         "@media (max-width: 600px)": {
           padding: "5px",
         },
       }}
     >
-      <Typography
-        variant="h5"
-        sx={{
-          fontFamily: "Montserrat",
-          fontSize: "22px",
-          fontWeight: "600",
-          marginBottom: "16px",
-          color: "#455F76",
-          "@media (max-width: 600px)": {
-            fontSize: "20px",
-          },
-        }}
-      >
-        Select Delivery Address
-      </Typography>
-    
+     <Typography
+  sx={{
+    fontFamily: "Montserrat",
+    fontSize: "24px",
+    fontWeight: 600,
+    marginBottom: "16px",
+    lineHeight: '29.26px',
+    textUnderlinePosition: 'from-font',
+    color: "#455F76",
+    "@media (max-width: 600px)": {
+      fontSize: "20px",
+    },
+  }}
+>
+  Select Delivery Address
+</Typography>
+
       {addresses.length > 0 ? (
         addresses.map((address, index) => (
           <Box
@@ -102,7 +103,7 @@ const DeliveryAddress = () => {
               padding: "16px",
               border: "1px solid #BABABA",
               borderRadius: "8px",
-              marginBottom: "8px",
+              marginBottom: "15px",
               backgroundColor: "border: 1px solid var(--iz-grey-light, #BABABA)",
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
             }}
@@ -195,6 +196,7 @@ const DeliveryAddress = () => {
                 color: "#656565",
                 fontWeight: "500",
                 paddingLeft: "16px",
+                
                 "@media (max-width: 600px)": {
                   marginLeft: "0",
                 },
@@ -218,12 +220,14 @@ const DeliveryAddress = () => {
     fontWeight: 600,
     lineHeight: '19.5px',
     textAlign: 'left',
+    marginTop: '60px',
     textDecorationLine: 'underline',
     textDecorationStyle: 'solid',
     textUnderlinePosition: 'from-font',
     textDecorationSkipInk: 'none',
     cursor: 'pointer',
     color:  '#FF944E',
+   
 
   }}
 >
@@ -402,7 +406,7 @@ const DeliveryAddress = () => {
           <Typography
             sx={{
               fontFamily: "Montserrat",
-              fontSize: "19px",
+              fontSize: "17px",
               color: "#212121",
               fontWeight: "600",
             }}
@@ -430,7 +434,7 @@ const DeliveryAddress = () => {
           <Typography
             sx={{
               fontFamily: "Montserrat",
-              fontSize: "19px",
+              fontSize: "17px",
               color: "#212121",
               fontWeight: "600",
             }}
@@ -473,7 +477,7 @@ const DeliveryAddress = () => {
         variant="outlined"
         onClick={handleCancel}
         sx={{
-          width: "250px",
+          width: "267px",
           height: "56px",
           fontFamily: 'Montserrat',
           fontWeight:600,
@@ -489,7 +493,7 @@ const DeliveryAddress = () => {
         variant="contained"
         onClick={handleSave}
         sx={{
-          width: "250px",
+          width: "267px",
           height: "56px",
           fontFamily: 'Montserrat',
           backgroundColor: "#FF944E",
