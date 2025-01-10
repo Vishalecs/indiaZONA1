@@ -36,7 +36,8 @@ const CheckoutPage = () => {
           justifyContent: 'center',
           alignItems: 'center',
           minHeight: '100vh',
-          backgroundColor: '#f5f5f5',
+          background: "linear-gradient(to bottom,#C7DEEF, #ffffff)"
+
         }}
       >
         <Container
@@ -47,7 +48,7 @@ const CheckoutPage = () => {
             backgroundColor: '#fff',
             padding: '16px',
             
-            marginTop: '20px',
+            marginTop: '40px',
           }}
         >
           <Box
