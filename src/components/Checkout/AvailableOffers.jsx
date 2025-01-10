@@ -216,21 +216,38 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
           >
             Get 10% off on Minimum order value Rs 1499
           </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: '16px',
-              fontWeight: 600,
-              textAlign: 'center',
-              color: '#FF944E',
-              marginLeft:'30px',
-              "@media (max-width: 600px)": {
-                marginLeft:'90px',// Mobile view
-              },
-            }}
-          >
+          <Box
+  sx={{
+   
+    border: '2px dashed #E1E1E1', // Dashed border matching the text color
+   
+    padding: '8px 16px', // Padding for inner spacing
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 'fit-content',
+    margin: '0 auto', // Center the box horizontally
+    marginTop: '10px', // Add some top spacing
+    "@media (max-width: 600px)": {
+      marginLeft: 'auto', // Centering in mobile view
+      marginRight: 'auto',
+    },
+  }}
+>
+<Typography
+    variant="h6"
+    sx={{
+      fontSize: '16px',
+      fontWeight: 600,
+      textAlign: 'center',
+      color: '#FF944E',
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
             Coupon 10% OFF <ContentCopyIcon sx={{ color: "#FF944E" ,height:"17px"}} /> 
           </Typography>
+          </Box>
         </Box>
 
         <Box
@@ -263,21 +280,40 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
           >
             Get 20% off on Minimum order value Rs 1499
           </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: '16px',
-              fontWeight: 600,
-              textAlign: 'center',
-              color: '#FF944E',
-              marginLeft:'30px',
-              "@media (max-width: 600px)": {
-                marginLeft:'90px',// Mobile view
-              },
-            }}
-          >
-            Coupon 20% OFF <ContentCopyIcon sx={{ color: "#FF944E" ,height:"17px"}} /> 
-          </Typography>
+          <Box
+  sx={{
+   
+    border: '2px dashed #E1E1E1', // Dashed border matching the text color
+   
+    padding: '8px 16px', // Padding for inner spacing
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 'fit-content',
+    margin: '0 auto', // Center the box horizontally
+    marginTop: '10px', // Add some top spacing
+    "@media (max-width: 600px)": {
+      marginLeft: 'auto', // Centering in mobile view
+      marginRight: 'auto',
+    },
+  }}
+>
+  <Typography
+    variant="h6"
+    sx={{
+      fontSize: '16px',
+      fontWeight: 600,
+      textAlign: 'center',
+      color: '#FF944E',
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
+    Coupon 20% OFF 
+    <ContentCopyIcon sx={{ color: "#FF944E", height: "17px", marginLeft: "4px" }} />
+  </Typography>
+</Box>
+
         </Box>
       </Box>
 
@@ -293,51 +329,61 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
             marginBottom: '20px',
           }}
         >
-          Bank Offer
+          Bank offers
         </Typography>
         <Typography
-          variant="body2"
-          sx={{
-            fontFamily: 'Montserrat',
-            fontSize: '14px',
-            fontWeight: 600,
-            textAlign: 'left',
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <Discount sx={{ marginRight: '8px', color: 'gray', width: '12.18px', height: '12.18px' }} />
-          Bank Offer 5% Cashback on Axis Bank Credit Card
-          <Link
-            href="https://your-terms-and-conditions-link.com"
-            sx={{ color: '#455F76' }}
-            target="_blank"
-          >
-            T&C
-          </Link>
-        </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            fontFamily: 'Montserrat',
-            fontSize: '14px',
-            fontWeight: 600,
-            textAlign: 'left',
-            display: 'flex',
-            alignItems: 'center',
-            marginTop: '10px',
-          }}
-        >
-          <Discount sx={{ marginRight: '8px', color: 'gray', width: '12.18px', height: '12.18px' }} />
-          Bank Offer 5% Cashback on Axis Bank Credit Card
-          <Link
-            href="https://your-terms-and-conditions-link.com"
-            sx={{ color: '#455F76' }}
-            target="_blank"
-          >
-            T&C
-          </Link>
-        </Typography>
+  variant="body2"
+  sx={{
+    fontFamily: 'Montserrat',
+    fontSize: '14px',
+    fontWeight: 600,
+    textAlign: 'left',
+    display: 'flex',
+    letterSpacing: "0.2px",
+    alignItems: 'center',
+  }}
+>
+  <Discount sx={{ marginRight: '8px', color: 'gray', width: '12.18px', height: '12.18px' }} />
+  Bank Offer 5% Cashback on Axis Bank Credit Card&nbsp;
+  <Link
+    href="https://your-terms-and-conditions-link.com"
+    sx={{
+      color: '#455F76',
+      marginLeft: '4px', // Add margin to create space between the text and link
+    }}
+    target="_blank"
+  >
+    T&C
+  </Link>
+</Typography>
+
+<Typography
+  variant="body2"
+  sx={{
+    marginTop: '10px',
+    fontFamily: 'Montserrat',
+    fontSize: '14px',
+    fontWeight: 600,
+    textAlign: 'left',
+    display: 'flex',
+    letterSpacing: "0.2px",
+    alignItems: 'center',
+  }}
+>
+  <Discount sx={{ marginRight: '8px', color: 'gray', width: '12.18px', height: '12.18px' }} />
+  Bank Offer 15% Cashback on EMI purchase with any Bank Credit Card&nbsp;
+  <Link
+    href="https://your-terms-and-conditions-link.com"
+    sx={{
+      color: '#455F76',
+      marginLeft: '4px', // Add margin to create space between the text and link
+    }}
+    target="_blank"
+  >
+    T&C
+  </Link>
+</Typography>
+
       </Box>
 
       {/* Horizontal Line */}
