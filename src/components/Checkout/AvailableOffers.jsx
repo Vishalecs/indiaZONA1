@@ -126,7 +126,7 @@ const ApplyDiscount = ({ onApplyDiscount }) => {
                     fontFamily: 'Montserrat',
                     fontSize: '16px',
                     fontWeight: '600',
-                    color: 'blue',
+                    color: '#455F76',
                     cursor: 'pointer',
                     '&:hover': {
                       textDecoration: 'underline',
