@@ -10,7 +10,7 @@ import {
   RadioGroup,
   Modal,
 } from "@mui/material";
-
+import { Edit } from '@mui/icons-material';
 const DeliveryAddress = () => {
   const [showForm, setShowForm] = useState(false);
   
@@ -105,7 +105,7 @@ const DeliveryAddress = () => {
               borderRadius: "8px",
               marginBottom: "15px",
               backgroundColor: "border: 1px solid var(--iz-grey-light, #BABABA)",
-              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+              
             }}
           >
             <Box
@@ -136,7 +136,7 @@ const DeliveryAddress = () => {
                   checked={selectedAddressIndex === index}
                   onChange={() => setSelectedAddressIndex(index)}
                 />
-                <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
+                <Typography sx={{ fontSize: "16px", fontFamily: "Montserrat", fontWeight: "600" }}>
                   {address.name}
                 </Typography>
                 {address.addressType && (
@@ -168,29 +168,31 @@ const DeliveryAddress = () => {
   </Box>
 )}
 
-                <Typography sx={{ fontSize: "16px", fontWeight: "600" }}>
+                <Typography sx={{ fontSize: "16px", fontFamily: "Montserrat", fontWeight: "600" }}>
                   {address.mobile}
                 </Typography>
               </Box>
               <Typography
                 sx={{
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#007BFF",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  
                   cursor: "pointer",
+                  color: '#455F76',
                   "@media (max-width: 600px)": {
                     marginLeft: "8px",
                   },
                 }}
                 onClick={() => handleEdit(index)}
               >
-                Edit
+              <Edit sx={{ color: '#455F76',width:'15px',height:'15px' }} />   Edit
               </Typography>
             </Box>
             <Typography
               sx={{
                 fontFamily: "Montserrat",
-                marginLeft: "32px",
+                marginLeft: "33px",
+                marginTop: '0px',
                 fontSize: "16px",
                 lineHeight: "24px",
                 color: "#656565",
@@ -207,7 +209,12 @@ const DeliveryAddress = () => {
           </Box>
         ))
       ) : (
-        <Typography>No addresses added yet.</Typography>
+        <Typography 
+  sx={{ marginBottom: '16px', fontFamily: 'Montserrat', fontSize: '16px', color: '#656565' }}
+>
+  No addresses added yet.
+</Typography>
+
       )}
     
     
