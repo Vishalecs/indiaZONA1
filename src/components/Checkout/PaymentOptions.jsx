@@ -122,7 +122,7 @@ const PaymentOptions = () => {
               href="#"
               underline="always"
               sx={{
-                color: "#1976d2",
+                color: '#455F76',
                 fontSize: "14px",
                 fontWeight: "500",
                 position: "absolute",
@@ -136,7 +136,7 @@ const PaymentOptions = () => {
             sx={{
               fontSize: "12px",
               color: "#6b6b6b",
-              marginTop: "8px",
+              marginTop: "12px",
             }}
           >
             UPI ID is in the format of yourname@bankname or yourmobile@bankname
@@ -151,7 +151,7 @@ const PaymentOptions = () => {
           sx={{
             width: "100%", // Full width for small screens
             height: "74px",
-            padding: "15px 0 0 0",
+            padding: "15px 15px 15px 15px",
             borderRadius: "5px 5px 5px 5px",
             border: "1px solid #BABABA",
             backgroundColor:
@@ -365,7 +365,7 @@ const PaymentOptions = () => {
           sx={{
             width: "100%", // Full width for small screens
             height: "74px",
-            padding: "15px 0 0 0",
+            padding: "15px 15px 15px 15px",
             borderRadius: "5px 5px 5px 5px",
             border: "1px solid #BABABA",
             backgroundColor: selectedOption === "cod" ? "#f5f5f5" : "transparent",
